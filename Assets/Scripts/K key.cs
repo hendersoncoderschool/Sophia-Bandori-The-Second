@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitNote : MonoBehaviour
+public class Kkey : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,8 @@ public class HitNote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("k")) {
+            Destroy(gameObject);
+        }
     }
 }
