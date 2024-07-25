@@ -5,13 +5,14 @@ using UnityEngine;
 public class Keys : MonoBehaviour
 {
     public string key;
-    int score;
     bool entered;
+    public GameManager GameManager;
     
     // Start is called before the first frame update
     void Start()
     {
         entered = false;
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -19,10 +20,11 @@ public class Keys : MonoBehaviour
     {
         transform.Translate(Vector2.down * Time.deltaTime * 10);
         if (transform.position.y < -5) {
+            GameManager.Score = 0;
             Destroy(gameObject);
         }
         if (Input.GetKeyDown(key) && entered) {
-            score += 1;
+            GameManager.Score += 1;
             print("hello");
             Destroy(gameObject);
         }
@@ -36,5 +38,6 @@ public class Keys : MonoBehaviour
     void OnTriggerExit2D(Collider2D col) {
         //Debug.Log("collide");
         entered = false;
+        
     }
 }
