@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    int timer = 500;
+    int timer = 50;
+    public AudioSource DiA;
+    public int speed;
+
+    public GameManager GameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +20,9 @@ public class Timer : MonoBehaviour
     {
         timer -= 1;
         if (timer == 0) {
-            GameObject.Find("music").SetActive(true);
+            DiA.Play();
+            
         }
+        DiA.pitch = GameManager.speed;
     }
 }

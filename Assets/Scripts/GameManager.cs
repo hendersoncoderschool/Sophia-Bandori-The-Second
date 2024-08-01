@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int Score = 0;
     public TMP_Text ScoreText;
+    public int speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +19,12 @@ public class GameManager : MonoBehaviour
     {
         //print(Score);
         ScoreText.text = "Combo:" + Score;
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            speed -= 1;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            speed += 1;
+        }
     }
 }
